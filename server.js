@@ -40,3 +40,10 @@ app.post("/waste", (req, res) => {
         }
     })
 })
+
+app.post("/requests", (req, res) => {
+    console.log(`REQUESTS\nPhone: ${req.body.phone}`)
+    var data = database.collection('waste').doc(phone).get()
+    data += database.collection('food').doc(phone).get()
+    console.log(data)
+})
